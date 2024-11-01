@@ -1,7 +1,10 @@
 class House:
-    houses_history = []  
+    houses_history = []
 
     def __new__(cls, *args, **kwargs):
+        obj = object.__new__(cls)
+        cls.houses_history.append(args[0])
+        return obj
 
         instance = super(House, cls).__new__(cls)
 
